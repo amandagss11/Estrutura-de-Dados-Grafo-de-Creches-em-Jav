@@ -1,23 +1,11 @@
-11
-PedroFernandes
-FranciscoPauloDeOliveira
-HerculanoDeMelo
-JoanaTimoteo
-AmaroCavalcante
-JoaoGama
-AnaReinaldo
-HiginoRoberto
-PorfiroGabrielDosAnjos
-AntonioMartins
-JoseVicente
-PedroFernandes FranciscoPauloDeOliveira 3.6
-PedroFernandes HerculanoDeMelo 14.5
-FranciscoPauloDeOliveira HerculanoDeMelo 11.4
-FranciscoPauloDeOliveira JoaoGama 14.7
 JoanaTimoteo AmaroCavalcante 2.9
-AmaroCavalcante JoaoGama 5.7
+JoanaTimoteo AnaReinaldo 5.7
 AmaroCavalcante AnaReinaldo 5.7
-AnaReinaldo PorfiroGabrielDosAnjos 13.6
+AnaReinaldo JoaoGama 13.6
+FranciscoPauloDeOliveira PedroFernandes 3.6
+FranciscoPauloDeOliveira JoaoGama 14.7
+PedroFernandes JoaoGama 11.4
+PedroFernandes HerculanoDeMelo 14.5
 JoaoGama PorfiroGabrielDosAnjos 7.6
 HiginoRoberto PorfiroGabrielDosAnjos 1.5
 HiginoRoberto AntonioMartins 10.4
