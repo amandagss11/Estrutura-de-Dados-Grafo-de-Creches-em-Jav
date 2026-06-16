@@ -1,7 +1,4 @@
-/**
- * Lista simplesmente encadeada para armazenar creches e distâncias.
- * Implementada manualmente, sem uso de estruturas nativas do Java (ArrayList, LinkedList, etc.).
- */
+
 public class ListaEncadeada {
     private No cabeca;
     private int tamanho;
@@ -11,7 +8,7 @@ public class ListaEncadeada {
         this.tamanho = 0;
     }
 
-    /** Insere um novo nó no final da lista. */
+   
     public void inserir(int indiceCreche, double distancia) {
         No novo = new No(indiceCreche, distancia);
         if (cabeca == null) {
@@ -26,7 +23,7 @@ public class ListaEncadeada {
         tamanho++;
     }
 
-    /** Remove o nó com o índice de creche informado. Retorna true se removido. */
+   
     public boolean remover(int indiceCreche) {
         if (cabeca == null) return false;
 
@@ -48,7 +45,6 @@ public class ListaEncadeada {
         return false;
     }
 
-    /** Busca a distância até a creche pelo índice. Retorna -1 se não encontrada. */
     public double buscarDistancia(int indiceCreche) {
         No atual = cabeca;
         while (atual != null) {
@@ -60,16 +56,16 @@ public class ListaEncadeada {
         return -1;
     }
 
-    /** Verifica se a creche já está na lista. */
+   
     public boolean contem(int indiceCreche) {
         return buscarDistancia(indiceCreche) >= 0;
     }
 
-    /** Retorna os nós ordenados por distância crescente (insertion sort). */
+   
     public No[] ordenarPorDistancia() {
         if (tamanho == 0) return new No[0];
 
-        // Copiar nós para array manual
+       
         No[] arr = new No[tamanho];
         No atual = cabeca;
         for (int i = 0; i < tamanho; i++) {
@@ -77,7 +73,7 @@ public class ListaEncadeada {
             atual = atual.proximo;
         }
 
-        // Insertion sort por distância
+        
         for (int i = 1; i < arr.length; i++) {
             No chave = arr[i];
             int j = i - 1;

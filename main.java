@@ -1,14 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-/**
- * Sistema de Gestão de Rotas de Distribuição de Merenda entre Creches
- * Avaliação A3 – Estrutura de Dados e Análise de Algoritmos – 2026/1
- *
- * Estruturas de dados utilizadas:
- *   1. Matriz estática de adjacências (int[][]) – armazena se existe conexão (0/1).
- *   2. Lista simplesmente encadeada (ListaEncadeada / No) – armazena creches e distâncias.
- */
+
 public class Main {
 
     private static final String ARQUIVO_GRAFO = "grafo.txt";
@@ -17,7 +10,7 @@ public class Main {
         Grafo grafo = new Grafo();
         Scanner sc  = new Scanner(System.in);
 
-        // ----- Carregamento do grafo -----
+       
         try {
             grafo.lerArquivo(ARQUIVO_GRAFO);
             System.out.println("Grafo carregado com sucesso! ("
@@ -29,7 +22,7 @@ public class Main {
             return;
         }
 
-        // ----- Menu interativo -----
+       
         int opcao = -1;
         do {
             exibirMenu();

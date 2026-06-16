@@ -2,21 +2,14 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-/**
- * Grafo de creches.
- *
- * Estruturas de dados utilizadas:
- *  - Matriz estática de adjacências (int[][]) com 0/1 indicando conexão.
- *  - Lista simplesmente encadeada (ListaEncadeada[]) para armazenar
- *    as creches vizinhas e as distâncias de cada vértice.
- */
+
 public class Grafo {
 
-    private static final int MAX = 50; // tamanho máximo do grafo
+    private static final int MAX = 50; 
 
-    private String[] nomes;          // nomes das creches
-    private int[][] adjacencia;      // matriz estática de adjacências (0/1)
-    private ListaEncadeada[] listas; // listas encadeadas com distâncias
+    private String[] nomes;          
+    private int[][] adjacencia;      
+    private ListaEncadeada[] listas; 
     private int numCreches;
 
     public Grafo() {
@@ -33,34 +26,21 @@ public class Grafo {
         }
     }
 
-    // ---------------------------------------------------------------
-    // Leitura do arquivo
-    // ---------------------------------------------------------------
-
-    /**
-     * Lê o grafo de um arquivo .txt com o seguinte formato:
-     *
-     *   <número de creches>
-     *   <nome1>
-     *   <nome2>
-     *   ...
-     *   <nomeA> <nomeB> <distancia>
-     *   ...
-     */
+   
     public void lerArquivo(String caminho) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(caminho));
         String linha;
 
-        // Primeira linha: quantidade de creches
+        
         linha = br.readLine().trim();
         numCreches = Integer.parseInt(linha);
 
-        // Lê os nomes
+       
         for (int i = 0; i < numCreches; i++) {
             nomes[i] = br.readLine().trim();
         }
 
-        // Lê as arestas até EOF
+      
         while ((linha = br.readLine()) != null) {
             linha = linha.trim();
             if (linha.isEmpty()) continue;
@@ -85,11 +65,7 @@ public class Grafo {
         br.close();
     }
 
-    // ---------------------------------------------------------------
-    // Operações do grafo
-    // ---------------------------------------------------------------
-
-    /** Adiciona conexão bidirecional entre duas creches por índice. */
+   
     private void adicionarConexao(int a, int b, double distancia) {
         adjacencia[a][b] = 1;
         adjacencia[b][a] = 1;
@@ -98,10 +74,7 @@ public class Grafo {
         if (!listas[b].contem(a)) listas[b].inserir(a, distancia);
     }
 
-    /**
-     * Adiciona conexão bidirecional entre duas creches por nome.
-     * Retorna mensagem de resultado.
-     */
+   
     public String adicionarConexaoPorNome(String nomeA, String nomeB, double distancia) {
         int idxA = buscarIndice(nomeA);
         int idxB = buscarIndice(nomeB);
@@ -119,11 +92,7 @@ public class Grafo {
         return "Conexao adicionada: " + nomeA + " <-> " + nomeB + " (" + distancia + " km).";
     }
 
-    // ---------------------------------------------------------------
-    // Consultas
-    // ---------------------------------------------------------------
-
-    /** Informa o número de conexões de cada creche. */
+   
     public void exibirConexoesPorCreche() {
         System.out.println("\n=== Numero de conexoes por creche ===");
         for (int i = 0; i < numCreches; i++) {
@@ -135,7 +104,7 @@ public class Grafo {
         }
     }
 
-    /** Lista as creches conectadas a uma dada creche em ordem crescente de distância. */
+    
     public void listarVizinhosOrdenados(String nomeCreche) {
         int idx = buscarIndice(nomeCreche);
         if (idx == -1) {
@@ -155,8 +124,7 @@ public class Grafo {
             System.out.printf("  %-35s %.1f km%n", nomes[no.indiceCreche], no.distancia);
         }
     }
-
-    /** Informa a distância entre duas creches, se houver conexão direta. */
+ 
     public void informarDistancia(String nomeA, String nomeB) {
         int idxA = buscarIndice(nomeA);
         int idxB = buscarIndice(nomeB);
@@ -174,11 +142,11 @@ public class Grafo {
         }
     }
 
-    /** Exibe a matriz de adjacências completa. */
+    
     public void exibirMatrizAdjacencias() {
         System.out.println("\n=== Matriz de Adjacencias ===");
 
-        // cabeçalho abreviado
+       
         System.out.printf("%-5s", "");
         for (int j = 0; j < numCreches; j++) {
             System.out.printf(" %3d", j);
@@ -194,11 +162,7 @@ public class Grafo {
         }
     }
 
-    // ---------------------------------------------------------------
-    // Utilitários
-    // ---------------------------------------------------------------
 
-    /** Retorna o índice da creche pelo nome (case-insensitive). Retorna -1 se não encontrada. */
     public int buscarIndice(String nome) {
         for (int i = 0; i < numCreches; i++) {
             if (nomes[i].equalsIgnoreCase(nome)) return i;
